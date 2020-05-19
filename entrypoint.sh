@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+set -x
 
 files="$1"
 working_directory="$2"
@@ -23,7 +24,7 @@ fi
 while IFS= read -r root_file
 do
     echo "$root_file"
-   "$compiler" $args "$root_file"
+    "$compiler" $args "$root_file"
 done < <(printf '%s\n' "$files")
 
 
