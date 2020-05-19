@@ -25,6 +25,7 @@ while IFS= read -r root_file
 do
     echo "$root_file"
     "$compiler" $args "$root_file"
+    "$compiler" "-c"
 done < <(printf '%s\n' "$files")
 
 
