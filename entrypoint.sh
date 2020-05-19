@@ -24,9 +24,10 @@ fi
 
 while IFS= read -r root_file
 do
-    # echo "$root_file"
+    echo "$root_file"
+    dir=$(dirname "$root_file")
+    echo "$dir"
     "$compiler" $args "$root_file"
-    dir=$(dirname $root_file)
     "$compiler" "-c" "$dir"
 done < <(printf '%s\n' "$files")
 
