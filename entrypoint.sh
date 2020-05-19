@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
@@ -25,6 +25,5 @@ do
    echo "$line"
 done < <(printf '%s\n' "$files")
 
-# "$compiler" $args "$root_file"
 
 
