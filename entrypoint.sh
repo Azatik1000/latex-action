@@ -21,14 +21,16 @@ if [ -n "$working_directory" ]; then
   cd "$working_directory"
 fi
 
+main_dir=$(pwd)
+# echo "$main_dir"
 
 while IFS= read -r root_file
 do
-    echo "$root_file"
     dir=$(dirname "$root_file")
-    echo "$dir"
     "$compiler" $args "$root_file"
-    "$compiler" "-c" "$dir"
+    cd "$dir"
+    "$compiler" "-c"
+    cd "$main_dir"
 done < <(printf '%s\n' "$files")
 
 
