@@ -2,7 +2,7 @@
 
 set -e
 
-root_file="$1"
+files="$1"
 working_directory="$2"
 compiler="$3"
 args="$4"
@@ -20,4 +20,10 @@ if [ -n "$working_directory" ]; then
   cd "$working_directory"
 fi
 
-"$compiler" $args "$root_file"
+while IFS= read -r root_file; do
+    echo "root file:"
+    echo $root_file
+    "$compiler" $args "$root_file"
+done <<< "$files"
+
+

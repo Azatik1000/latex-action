@@ -2,7 +2,7 @@ name: LaTeX compilation
 description: Compiles latex documents using pdflatex, lualatex, xelatex. Full TeXLive distribution.
 author: Cheng XU, Oliver Kopp
 inputs:
-  root_file:
+  files:
     description: The root LaTeX file to be compiled
     required: true
   working_directory:
@@ -19,7 +19,7 @@ runs:
   using: docker
   image: Dockerfile
   args:
-    - ${{ inputs.root_file }}
+    - ${{ inputs.files }}
     - ${{ inputs.working_directory }}
     - ${{ inputs.compiler }}
     - ${{ inputs.args }}
