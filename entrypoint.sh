@@ -20,10 +20,10 @@ if [ -n "$working_directory" ]; then
   cd "$working_directory"
 fi
 
-while IFS= read -r root_file; do
-    echo "root file:"
-    echo $root_file
-    "$compiler" $args "$root_file"
-done <<< "$files"
+# while IFS= read -r root_file; do
+    # echo "root file:"
+    # echo $root_file
+"$compiler" $args "$root_file"
+# done <<< "$files"
 
 
