@@ -20,9 +20,9 @@ if [ -n "$working_directory" ]; then
   cd "$working_directory"
 fi
 
-while IFS= read -r line
+while IFS= read -r root_file
 do
-   echo "$line"
+   "$compiler" $args "$root_file"
 done < <(printf '%s\n' "$files")
 
 
