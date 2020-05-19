@@ -27,8 +27,9 @@ main_dir=$(pwd)
 while IFS= read -r root_file
 do
     dir=$(dirname "$root_file")
-    "$compiler" $args "$root_file"
+    filename=$(basename "$root_file")
     cd "$dir"
+    "$compiler" $args "$filename"
     "$compiler" "-c"
     cd "$main_dir"
 done < <(printf '%s\n' "$files")
